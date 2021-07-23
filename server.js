@@ -32,7 +32,7 @@ io.on('connection', (socket) => {
 
   socket.on('get', key =>{
    dkv.get(key, (err, value) => {
-    socket.emit('get', `Get successful for key name, ${key}: ${value}`)
+    socket.emit('get', value)
    })
   })
 
@@ -49,6 +49,6 @@ io.on('connection', (socket) => {
 })
 
 
-server.listen(3000, () => {
+server.listen(process.env.PORT || 3000, () => {
   console.log('listening on *:3000')
 })

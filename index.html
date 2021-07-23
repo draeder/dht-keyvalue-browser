@@ -116,12 +116,14 @@
    console.log(result)
 
    toggleWait([waiting, finished])
+   document.getElementById('key').value = ''
+   document.getElementById('value').value = ''
 
   })
 
   dkv.on('get', result => {
    console.log(result)
-
+   document.getElementById('value').value = JSON.parse(result).value
    toggleWait([waiting, finished])
 
   })
@@ -130,7 +132,8 @@
    console.log(result)
 
    toggleWait([waiting, finished])
-
+   document.getElementById('key').value = ''
+   document.getElementById('value').value = ''
   })
 
  })
